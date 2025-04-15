@@ -1,65 +1,51 @@
-# dpl-syntax-highlighting README
+# DPL Syntax Highlighting
 
-This is the README for your extension "dpl-syntax-highlighting". After writing up a brief description, we recommend including the following sections.
+This VS Code extension provides syntax highlighting for the Dubious Programming Language (DPL) files.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+The extension offers syntax highlighting for `.dpl` files, making it easier to write and read code in the Dubious Programming Language. Syntax highlighting includes:
 
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+- Keywords and control flow statements
+- Function declarations and calls
+- Data types and structures
+- Comments
+- String and numeric literals
+- Operators and special symbols
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+No special requirements or dependencies needed. Just install the extension and open any `.dpl` file.
+
+## Installation
+
+You can install this extension in several ways:
+1. Search for "DPL Syntax Highlighting" in the VS Code Extensions marketplace
+2. Use the command line: `code --install-extension dpl-syntax-highlighting`
+3. Download the VSIX file and install it manually
+
+## About Dubious Programming Language (DPL)
+
+DPL is a simple programming language with its own compiler. Some key features of the language include:
+
+- C-like syntax with modern language features
+- Support for functions, structs, and enums
+- Type system with int, float, boolean types
+- Operator precedence similar to C/C++
+- Assembly inline capabilities
+
+For more information about the language itself, visit the [DPL compiler repository](https://github.com/Scezaquer/dubious-programming-language).
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+This extension doesn't contribute any VS Code settings at this time.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+This is an early version of the syntax highlighter. If you encounter issues, please report them on the extension's repository.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.0.1
 
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Initial release of DPL Syntax Highlighting with basic syntax support.

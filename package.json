@@ -1,0 +1,25 @@
+{
+  "name": "dpl-syntax-highlighting",
+  "displayName": "DPL-syntax-highlighting",
+  "description": "Syntax highlighter for the Dubious Programming Language (DPL)",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.99.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "dpl",
+      "aliases": ["DPL", "dpl"],
+      "extensions": [".dpl"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "dpl",
+      "scopeName": "source.dpl",
+      "path": "./syntaxes/dpl.tmLanguage.json"
+    }]
+  }
+}

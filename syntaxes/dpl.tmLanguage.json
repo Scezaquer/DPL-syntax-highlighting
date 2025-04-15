@@ -134,7 +134,7 @@
 			"patterns": [
 				{
 					"name": "meta.preprocessor.dpl",
-					"match": "#(include|define|undef|ifdef|ifndef|if|elif|else|endif|error|print)\\b"
+					"match": "#(include|define|undef|ifdef|ifndef|if|elif|else|endif|error|print|namespace|spacename)\\b"
 				}
 			]
 		},

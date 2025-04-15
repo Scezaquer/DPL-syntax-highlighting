@@ -2,7 +2,7 @@
   "name": "dpl-syntax-highlighting",
   "displayName": "DPL-syntax-highlighting",
   "description": "Syntax highlighter for the Dubious Programming Language (DPL)",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "Aurélien Bück-Kaeffer",
   "repository": "https://github.com/Scezaquer/DPL-syntax-highlighting",
   "engines": {

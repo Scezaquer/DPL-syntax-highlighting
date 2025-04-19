@@ -23,6 +23,7 @@ You can install this extension in several ways:
 1. Search for "DPL Syntax Highlighting" in the VS Code Extensions marketplace
 2. Use the command line: `code --install-extension dpl-syntax-highlighting`
 3. Download the VSIX file and install it manually
+4. Clone the repo, run `vsce package` and load the VSIX file using the vscode extension explorer
 
 ## About Dubious Programming Language (DPL)
 

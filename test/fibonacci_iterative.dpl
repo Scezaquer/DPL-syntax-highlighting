@@ -2,8 +2,8 @@
 #define TEST
 
 struct hello {
-	int a;
-	int b;
+	a: int;
+	b: int;
 }
 
 enum E {
@@ -15,8 +15,8 @@ enum E {
 namespace SUB_TEST;
 
 struct hi {
-	int a;
-	int b;
+	a: int;
+	b: int;
 }
 
 spacename;
@@ -26,6 +26,10 @@ fn return2:<T>(i: T): T {
 	let tmp: T;
 	return i;
 }
+
+fn test(): void {}
+
+const some_const: int = 1;
 
 struct S:<T, U, V> {
 	a: T;
@@ -58,15 +62,17 @@ fn main(): int {
 	let y: int = 0b00000000;
 	let z: int = 0x00000000;
 	let w: bool = false;
-	let s: string = "Hello, world!";
+	let s: str = "Hello, world!";
 	let arr[5]: array[int] = [1, 2, 3, 4, 5];
 	let c: char = 'abc';
 
 	return2:<int>(1);
-	let s1: S:<int, int, int>;
+	let s1: S:<int, int, int> = S:<int, int, int>{a:1};
 	return2:<S:<int>>(s1);
 
-	let s2: TEST::SUB_TEST::hi;
+	let s2: TEST::SUB_TEST::hi = TEST::SUB_TEST::hi{a:1, b:2};
+	TEST::test();
+	TEST::some_const;
 
 	return c;
 }

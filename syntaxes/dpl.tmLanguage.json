@@ -3,6 +3,12 @@
 	"name": "DPL",
 	"patterns": [
 		{
+			"include": "#functions"
+		},
+		{
+			"include": "#namespaces"
+		},
+		{
 			"include": "#structs"
 		},
 		{
@@ -25,12 +31,6 @@
 		},
 		{
 			"include": "#operators"
-		},
-		{
-			"include": "#namespaces"
-		},
-		{
-			"include": "#functions"
 		},
 		{
 			"include": "#generic-bindings"
@@ -140,7 +140,7 @@
 					}
 				},
 				{
-					"match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*::",
+					"match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)(?=\\s*::)",
 					"captures": {
 						"1": { "name": "entity.name.namespace.dpl" }
 					}
@@ -157,7 +157,33 @@
 					}
 				},
 				{
-					"match": "(?<=:)\\s*([a-zA-Z_][a-zA-Z0-9_]*)\\b(?!\\s*(?:int|float|bool|char|str|void|array)\\b)",
+					"match": "(?<!:)(?::\\s*)((?:[a-zA-Z_][a-zA-Z0-9_]+::)*)([a-zA-Z_][a-zA-Z0-9_]*)", 
+					"captures": {
+						"1": { 
+							"patterns": [
+								{
+									"name": "entity.name.namespace.dpl",
+									"match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b"
+								},
+								{
+									"name": "keyword.operator.dpl",
+									"match": "::"
+								}
+							]
+						 },
+						"2": { "name": "entity.name.type.struct.dpl" }
+					}
+				},
+				{
+					"name": "entity.name.struct",
+					"match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(?=\\s*:<(?:[^<>]|<[^<>]*>)*>\\s*\\{)",
+					"captures": {
+						"1": { "name": "entity.name.type.struct.dpl" }
+					}
+				},
+				{
+					"name": "entity.name.struct",
+					"match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\{",
 					"captures": {
 						"1": { "name": "entity.name.type.struct.dpl" }
 					}

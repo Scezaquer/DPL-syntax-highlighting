@@ -9,10 +9,10 @@
 			"include": "#namespaces"
 		},
 		{
-			"include": "#structs"
+			"include": "#keywords"
 		},
 		{
-			"include": "#keywords"
+			"include": "#structs"
 		},
 		{
 			"include": "#strings"

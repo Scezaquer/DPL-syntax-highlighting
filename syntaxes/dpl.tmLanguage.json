@@ -3,13 +3,13 @@
 	"name": "DPL",
 	"patterns": [
 		{
+			"include": "#keywords"
+		},
+		{
 			"include": "#functions"
 		},
 		{
 			"include": "#namespaces"
-		},
-		{
-			"include": "#keywords"
 		},
 		{
 			"include": "#structs"

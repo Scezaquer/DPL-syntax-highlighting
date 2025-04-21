@@ -2,45 +2,19 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "DPL",
 	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#functions"
-		},
-		{
-			"include": "#namespaces"
-		},
-		{
-			"include": "#structs"
-		},
-		{
-			"include": "#strings"
-		},
-		{
-			"include": "#characters"
-		},
-		{
-			"include": "#include-content"
-		},
-		{
-			"include": "#comments"
-		},
-		{
-			"include": "#constants"
-		},
-		{
-			"include": "#operators"
-		},
-		{
-			"include": "#generic-bindings"
-		},
-		{
-			"include": "#preprocessor"
-		},
-		{
-			"include": "#storage"
-		},
+		{ "include": "#keywords" },
+		{ "include": "#functions" },
+		{ "include": "#namespaces" },
+		{ "include": "#structs" },
+		{ "include": "#strings" },
+		{ "include": "#characters" },
+		{ "include": "#include-content" },
+		{ "include": "#comments" },
+		{ "include": "#constants" },
+		{ "include": "#operators" },
+		{ "include": "#generic-bindings" },
+		{ "include": "#preprocessor" },
+		{ "include": "#storage" },
 		{
 			"name": "variable.other.dpl",
 			"match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
@@ -48,19 +22,20 @@
 	],
 	"repository": {
 		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.dpl",
-				"match": "\\b(if|else|do|while|for|return|break|continue|loop)\\b"
-			},
-			{
-				"name": "keyword.control.function.dpl",
-				"match": "\\b(fn)\\b"
-			},
-			{
-				"name": "keyword.declaration.dpl",
-				"match": "\\b(let|const|struct|enum|asm|namespace|spacename)\\b"
-			}
-		]
+			"patterns": [
+				{
+					"name": "keyword.control.dpl",
+					"match": "\\b(if|else|do|while|for|return|break|continue|loop)\\b"
+				},
+				{
+					"name": "keyword.control.function.dpl",
+					"match": "\\b(fn)\\b"
+				},
+				{
+					"name": "keyword.declaration.dpl",
+					"match": "\\b(let|const|struct|enum|asm|namespace|spacename)\\b"
+				}
+			]
 		},
 		"strings": {
 			"name": "string.quoted.double.dpl",
@@ -110,7 +85,7 @@
 					"match": "\\b\\d+\\.\\d+\\b"
 				},
 				{
-					"name": "constant.numeric.dpl",
+					"name": "constant.numeric.decimal.dpl",
 					"match": "\\b\\d+\\b"
 				},
 				{
@@ -136,13 +111,17 @@
 				{
 					"match": "(?<=namespace\\s+)([a-zA-Z_][a-zA-Z0-9_]*)\\b",
 					"captures": {
-						"1": { "name": "entity.name.namespace.dpl" }
+						"1": {
+							"name": "entity.name.namespace.dpl entity.name.type.struct.dpl"
+						}
 					}
 				},
 				{
 					"match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)(?=\\s*::)",
 					"captures": {
-						"1": { "name": "entity.name.namespace.dpl" }
+						"1": {
+							"name": "entity.name.namespace.dpl entity.name.type.struct.dpl"
+						}
 					}
 				}
 			]
@@ -152,17 +131,21 @@
 				{
 					"match": "\\b(struct|enum)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\b",
 					"captures": {
-						"1": { "name": "keyword.declaration.dpl" },
-						"2": { "name": "entity.name.type.struct.dpl" }
+						"1": {
+							"name": "keyword.declaration.dpl"
+						},
+						"2": {
+							"name": "entity.name.type.struct.dpl"
+						}
 					}
 				},
 				{
-					"match": "(?<!:)(?::\\s*)((?:[a-zA-Z_][a-zA-Z0-9_]+::)*)([a-zA-Z_][a-zA-Z0-9_]*)", 
+					"match": "(?<!:)(?::\\s*)((?:[a-zA-Z_][a-zA-Z0-9_]+::)*)([a-zA-Z_][a-zA-Z0-9_]*)",
 					"captures": {
-						"1": { 
+						"1": {
 							"patterns": [
 								{
-									"name": "entity.name.namespace.dpl",
+									"name": "entity.name.namespace.dpl entity.name.type.struct.dpl",
 									"match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b"
 								},
 								{
@@ -170,22 +153,28 @@
 									"match": "::"
 								}
 							]
-						 },
-						"2": { "name": "entity.name.type.struct.dpl" }
+						},
+						"2": {
+							"name": "entity.name.type.struct.dpl"
+						}
 					}
 				},
 				{
 					"name": "entity.name.struct",
 					"match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(?=\\s*:<(?:[^<>]|<[^<>]*>)*>\\s*\\{)",
 					"captures": {
-						"1": { "name": "entity.name.type.struct.dpl" }
+						"1": {
+							"name": "entity.name.type.struct.dpl"
+						}
 					}
 				},
 				{
 					"name": "entity.name.struct",
 					"match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\{",
 					"captures": {
-						"1": { "name": "entity.name.type.struct.dpl" }
+						"1": {
+							"name": "entity.name.type.struct.dpl"
+						}
 					}
 				}
 			]
@@ -196,14 +185,18 @@
 					"name": "entity.name.function",
 					"match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(?=\\s*:<(?:[^<>]|<[^<>]*>)*>\\s*\\()",
 					"captures": {
-						"1": { "name": "entity.name.function.dpl" }
+						"1": {
+							"name": "entity.name.function.dpl"
+						}
 					}
 				},
 				{
 					"name": "entity.name.function",
-					"match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\(",
+					"match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(?=\\()",
 					"captures": {
-						"1": { "name": "entity.name.function.dpl" }
+						"1": {
+							"name": "entity.name.function.dpl"
+						}
 					}
 				}
 			]
@@ -214,17 +207,21 @@
 					"name": "meta.generic.dpl",
 					"match": "(:)<([^<>]|<[^<>]*>)*>",
 					"captures": {
-						"1": { "name": "keyword.operator.dpl" },
-						"0": { "patterns": [
-							{
-								"name": "entity.name.type.dpl",
-								"match": "\\b(int|float|bool|char|str|void|array)\\b"
-							},
-							{
-								"match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b",
-								"name": "entity.name.type.parameter.dpl"
-							}
-						]}
+						"1": {
+							"name": "keyword.operator.dpl"
+						},
+						"0": {
+							"patterns": [
+								{
+									"name": "entity.name.type.dpl",
+									"match": "\\b(int|float|bool|char|str|void|array)\\b"
+								},
+								{
+									"match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b",
+									"name": "entity.name.type.parameter.dpl"
+								}
+							]
+						}
 					}
 				}
 			]
@@ -244,8 +241,7 @@
 					"match": "\\b(int|float|bool|char|str|void|array)\\b"
 				}
 			]
-		}
-		,
+		},
 		"include-content": {
 			"patterns": [
 				{

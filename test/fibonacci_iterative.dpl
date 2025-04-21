@@ -67,12 +67,13 @@ fn main(): int {
 	let c: char = 'abc';
 
 	return2:<int>(1);
-	let s1: S:<int, int, int> = S:<int, int, int>{a:1};
+	let s1: S:<int, int, int> = S:<int, int, int>{1};
 	return2:<S:<int>>(s1);
 
-	let s2: TEST::SUB_TEST::hi = TEST::SUB_TEST::hi{a:1, b:2};
+	let s2: TEST::SUB_TEST::hi = TEST::SUB_TEST::hi{1, 2};
 	TEST::test();
 	TEST::some_const;
+	let e: E = E.HIGH;
 
 	return c;
 }
